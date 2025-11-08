@@ -1,0 +1,68 @@
+[build-system]
+requires = ["setuptools>=45", "wheel", "setuptools_scm[toml]>=6.2"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "corefud-scorer"
+version = "1.2.0"
+description = "Coreference scorer for documents in CorefUD 1.0 scheme"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "Michal Novák", email = "mnovak@ufal.mff.cuni.cz"},
+    {name = "Juntao Yu", email = "juntao.cn@gmail.com"},
+    {name = "Martin Popel", email = "popel@ufal.mff.cuni.cz"},
+    {name = "Yilun Zhu", email = "yz565@georgetown.edu"},
+]
+keywords = [
+    "coreference",
+    "coreference resolution",
+    "evaluation",
+    "scorer",
+    "nlp",
+    "natural language processing",
+    "CorefUD",
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Text Processing :: Linguistic",
+]
+dependencies = [
+    "numpy",
+    "scipy>=0.17.0",
+    "udapi>=0.3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
+[project.urls]
+Homepage = "https://github.com/ufal/corefud-scorer"
+Repository = "https://github.com/ufal/corefud-scorer"
+Documentation = "https://github.com/ufal/corefud-scorer/blob/main/README.md"
+"Bug Tracker" = "https://github.com/ufal/corefud-scorer/issues"
+
+[project.scripts]
+corefud_scorer = "scorer.cli:main_corefud"
+ua_scorer = "scorer.cli:main_ua"
+
+[tool.setuptools]
+packages = ["scorer", "scorer.base", "scorer.conll", "scorer.corefud", "scorer.eval", "scorer.ua"]
+
+[tool.setuptools.package-data]
+scorer = ["py.typed"]
